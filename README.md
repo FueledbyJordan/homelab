@@ -23,12 +23,17 @@ This project utilizes [Infrastructure as Code](https://en.wikipedia.org/wiki/Inf
     <tr>
         <td><img width="32" src="https://avatars.githubusercontent.com/u/314135?s=200&v=4"></td>
         <td><a href="https://www.cloudflare.com">Cloudflare</a></td>
-        <td>DNS and Tunnel</td>
+        <td>Proxy, Firewall, IP masking, and Tunnel</td>
     </tr>
     <tr>
         <td><img width="32" src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"></td>
         <td><a href="https://www.docker.com">Docker</a></td>
-        <td>Ephermeral PXE server and convenient tools container</td>
+        <td>Container engine</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://raw.githubusercontent.com/docker/compose/v2/logo.png"></td>
+        <td><a href="https://docs.docker.com/compose/">Docker Compose</a></td>
+        <td>Container orchestration</td>
     </tr>
 </table>
 
