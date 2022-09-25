@@ -1,11 +1,41 @@
 # Jordan's Homelab
 
-This project utilizes [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_code) to automate provisioning, operating, and updating self-hosted services in my homelab.
-
 > **What is a homelab?**
 >
 > Homelab is a laboratory at home where you can self-host, experiment with new technologies, practice for certifications, and so on.
 > For more information about homelab in general, see the [r/homelab introduction](https://www.reddit.com/r/homelab/wiki/introduction).
+
+The goals of my homelab are to make my life easier, to reduce dependence on cloud services, and to provide an avenue for learning.
+I have found that my needs have grown to require proper configuration management.
+
+## Services hosted
+<table>
+    <tr>
+        <th>Logo</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png?20091205084734"></td>
+        <td><a href="https://docs.linuxserver.io/general/swag">SWAG</a></td>
+        <td>Reverse proxy, certificate management, and intrusion detection</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://github.com/dani-garcia/vaultwarden/blob/main/resources/vaultwarden-icon.svg"></td>
+        <td><a href="https://github.com/dani-garcia/vaultwarden">Vaultwarden</a></td>
+        <td>An open source rust implementation of the popular <a href="https://bitwarden.com/">Bitwarden</a> password manager</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png?20091205084734"></td>
+        <td><a href="https://github.com/ttionya/vaultwarden-backup">Vaultwarden Backup</a></td>
+        <td>A tool designed to simplify vaultwarden backup management</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png?20091205084734"></td>
+        <td><a href="https://github.com/FueledbyJordan/lake-depth-monitor">Lake Depth Monitor</a></td>
+        <td>A tool I wrote to monitor water levels at a local lake.</td>
+    </tr>
+</table>
 
 ## Tech stack
 
