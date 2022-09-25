@@ -51,6 +51,11 @@ I have found that my needs have grown to require proper configuration management
         <td>Automate bare metal provisioning and configuration</td>
     </tr>
     <tr>
+        <td><img width="32" src="https://www.backblaze.com/blog/wp-content/uploads/2017/12/backblaze_icon_transparent.png"></td>
+        <td><a href="https://www.backblaze.com/">Backblaze</a></td>
+        <td>Backups</td>
+    </tr>
+    <tr>
         <td><img width="32" src="https://avatars.githubusercontent.com/u/314135?s=200&v=4"></td>
         <td><a href="https://www.cloudflare.com">Cloudflare</a></td>
         <td>Proxy, firewall, IP masking, and tunnel</td>
