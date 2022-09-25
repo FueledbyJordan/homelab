@@ -1,0 +1,9 @@
+---
+
+- ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: /docker-compose.yml
+    owner: root
+    group: root
+    mode: '0600'
+  become: yes

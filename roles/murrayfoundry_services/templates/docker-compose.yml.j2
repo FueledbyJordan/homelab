@@ -1,0 +1,83 @@
+---
+version: "3.7"
+services:
+
+  swag:
+    image: lscr.io/linuxserver/swag
+    container_name: swag
+    restart: always
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+      - URL=murrayfoundry.com
+      - SUBDOMAINS=vaultwarden
+      - VALIDATION=dns
+      - CERTPROVIDER=zerossl
+      - DNSPLUGIN=cloudflare
+      - EMAIL={{ DOMAIN_BOT_ADDRESS }}
+    volumes:
+      - /opt/appdata/swag:/config
+    ports:
+      - 80:80
+      - 443:443
+
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    environment:
+      - DOMAIN=https://vaultwarden.murrayfoundry.com
+      - ADMIN_TOKEN={{ VAULTWARDEN_ADMIN_TOKEN }}
+      - SIGNUPS_ALLOWED=false
+      - WEBSOCKET_ENABLED=true
+      - SMTP_HOST=smtp.sendgrid.net
+      - SMTP_FROM={{ DOMAIN_BOT_ADDRESS }}
+      - SMTP_PORT=587
+      - SMTP_SECURITY=starttls
+      - SMTP_USERNAME=apikey
+      - SMTP_PASSWORD={{ DOMAIN_BOT_SMTP_PASSWORD }}
+      - SMTP_AUTH_MECHANISM=Login
+    volumes:
+      - /opt/appdata/vaultwarden:/data
+
+  vaultwarden-backup:
+    image: ttionya/vaultwarden-backup:latest
+    container_name: vaultwarden-backup
+    restart: always
+    environment:
+      - RCLONE_REMOTE_NAME=B2
+      - RCLONE_REMOTE_DIR=murrayfoundry-backups
+      - CRON=5 1 * * *
+      - ZIP_ENABLE=TRUE
+      - ZIP_PASSWORD={{ VW_BACKUP_ZIP_PASSWORD }}
+      - ZIP_TYPE=7z
+      - PING_URL={{ VW_BACKUP_PING_URL }}
+      - TIMEZONE=UTC
+    volumes:
+      - /opt/appdata/vaultwarden:/bitwarden/data
+      - /opt/appdata/vaultwarden-backup/config:/config
+
+  waterbot:
+    image: fueledbyjordan/lake-depth-monitor:latest
+    container_name: waterbot
+    restart: always
+    environment:
+      - CRON=0 9 * * *
+      - TIMEZONE=America/New_York
+      - CEILING_THRESHOLD=0.2
+      - FLOOR_THRESHOLD=3.0
+      - LAKE_NAME={{ WATERBOT_LAKE_NAME }}
+      - FULL_POOL_URL={{ WATERBOT_FULL_POOL_URL }}
+      - CURRENT_POOL_URL={{ WATERBOT_CURRENT_POOL_URL }}
+      - PING_URL={{ WATERBOT_PING_URL }}
+      - MAIL_SMTP_FROM={{ DOMAIN_BOT_ADDRESS }}
+      - MAIL_TO={{ WATERBOT_MAIL_TO }}
+      - MAIL_SMTP_HOST=smtp.sendgrid.net
+      - MAIL_SMTP_PORT=587
+      - MAIL_SMTP_SECURITY=starttls
+      - MAIL_SMTP_AUTH_MECHANISM=login
+      - MAIL_SMTP_USERNAME=apikey
+      - MAIL_SMTP_PASSWORD={{ DOMAIN_BOT_SMTP_PASSWORD }}
