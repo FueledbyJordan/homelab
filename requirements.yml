@@ -1,0 +1,31 @@
+---
+
+- src: https://github.com/geerlingguy/ansible-role-security
+  version: master
+
+- src: https://github.com/geerlingguy/ansible-role-docker
+  version: master
+
+- src: https://github.com/fueledbyjordan/ansible_role_autofs
+  version: master
+
+- src: https://github.com/bertvv/ansible-role-hosts
+  version: v1.2.0
+
+- src: https://github.com/FueledbyJordan/ansible_role_utilities
+  version: master
+
+- src: https://github.com/ryandaniels/ansible-role-create-users
+  version: 1.0.7
+
+- src: https://github.com/geerlingguy/ansible-role-firewall
+  version: master
+
+- src: https://github.com/FueledbyJordan/ansible-role-docker-compose
+  version: master
+
+- src: https://github.com/FueledbyJordan/ansible-role-home-assistant
+  version: master
+
+- src: https://github.com/FueledbyJordan/ansible_role_rclone_supercronic
+  version: master

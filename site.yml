@@ -1,0 +1,20 @@
+---
+
+- name: Sitewide role
+  hosts: server
+  become: true
+  vars_files:
+    - vars/main.yml
+    - vars/secrets.yml
+
+  roles:
+    - role: ansible-role-create-users
+    - role: ansible-role-security
+    - role: ansible-role-firewall
+    - role: ansible-role-docker
+    - role: ansible-role-hosts
+    - role: ansible_role_autofs
+    - role: ansible_role_utilities
+    - role: ansible-role-docker-compose
+    - role: ansible-role-home-assistant
+    - role: ansible_role_rclone_supercronic

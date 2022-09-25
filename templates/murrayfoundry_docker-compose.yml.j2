@@ -1,0 +1,126 @@
+---
+version: "3.7"
+services:
+
+  swag:
+    image: lscr.io/linuxserver/swag
+    container_name: swag
+    restart: always
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+      - URL=murrayfoundry.com
+      - SUBDOMAINS=vaultwarden,homeassistant,jellyfin
+      - VALIDATION=dns
+      - CERTPROVIDER=zerossl
+      - DNSPLUGIN=cloudflare
+      - EMAIL={{ domain_bot_address }}
+    volumes:
+      - /opt/appdata/swag:/config
+    ports:
+      - 80:80
+      - 443:443
+
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    environment:
+      - DOMAIN=https://vaultwarden.murrayfoundry.com
+      - ADMIN_TOKEN={{ vaultwarden_admin_token }}
+      - SIGNUPS_ALLOWED=false
+      - WEBSOCKET_ENABLED=true
+      - SMTP_HOST=smtp.sendgrid.net
+      - SMTP_FROM={{ domain_bot_address }}
+      - SMTP_PORT=587
+      - SMTP_SECURITY=starttls
+      - SMTP_USERNAME=apikey
+      - SMTP_PASSWORD={{ domain_bot_smtp_password }}
+      - SMTP_AUTH_MECHANISM=Login
+    volumes:
+      - /opt/appdata/vaultwarden:/data
+
+  vaultwarden-backup:
+    image: ttionya/vaultwarden-backup:latest
+    container_name: vaultwarden-backup
+    restart: always
+    environment:
+      - RCLONE_REMOTE_NAME=B2
+      - RCLONE_REMOTE_DIR=murrayfoundry-backups
+      - CRON=5 1 * * *
+      - ZIP_ENABLE=TRUE
+      - ZIP_PASSWORD={{ vw_backup_zip_password }}
+      - ZIP_TYPE=7z
+      - PING_URL={{ vw_backup_ping_url }}
+      - TIMEZONE=UTC
+    volumes:
+      - /opt/appdata/vaultwarden:/bitwarden/data
+      - /opt/appdata/vaultwarden-backup/config:/config
+
+  waterbot:
+    image: fueledbyjordan/lake-depth-monitor:latest
+    container_name: waterbot
+    restart: always
+    environment:
+      - CRON=0 9 * * 0
+      - TIMEZONE=America/New_York
+      - CEILING_THRESHOLD=0.2
+      - FLOOR_THRESHOLD=3.0
+      - LAKE_NAME={{ waterbot_lake_name }}
+      - FULL_POOL_URL={{ waterbot_full_pool_url }}
+      - CURRENT_POOL_URL={{ waterbot_current_pool_url }}
+      - PING_URL={{ waterbot_ping_url }}
+      - MAIL_FROM={{ domain_bot_address }}
+      - MAIL_TO={{ waterbot_mail_to }}
+      - SENDGRID_API_KEY={{ waterbot_sendgrid_api_key }}
+
+  homeassistant:
+    image: lscr.io/linuxserver/homeassistant:latest
+    container_name: homeassistant
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    restart: always
+    volumes:
+      - /opt/appdata/homeassistant:/config
+      - /opt/appdata/backups/homeassistant:/config/backups
+
+  rclone-supercronic:
+    image: ghcr.io/fueledbyjordan/rclone-supercronic:latest
+    container_name: rclone-supercronic
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+      - RCLONE_CONFIG=/config/rclone.conf
+    volumes:
+      - /opt/appdata/rclone-supercronic/config/crontab:/etc/supercronic/crontab:ro
+      - /opt/appdata/rclone-supercronic/config:/config:ro
+      - /opt/appdata/rclone-supercronic/scripts:/scripts:ro
+      - /opt/appdata/backups:/source
+
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - /opt/appdata/jellyfin:/config
+      - /MurrayStore/Movies:/data/movies
+      - /MurrayStore/TV:/data/tv
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: '172.20.0.0/24'

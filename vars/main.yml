@@ -1,0 +1,34 @@
+---
+
+network_ipv6_enable: false
+security_ssh_port: 2121
+
+update_utility: dnf-automatic
+update_service: dnf-automatic-install.timer
+update_conf_path: /etc/dnf/automatic.conf
+
+firewall_flush_rules_and_chains: false
+firewall_disable_firewalld: true
+firewall_allowed_tcp_ports:
+  - "80"
+  - "443"
+  - "2121"
+
+hosts_entries:
+  - name: MurrayStore
+    ip: 10.0.20.3
+
+autofs_mounts:
+  - { name: 'MurrayStore', local_path: '/MurrayStore', remote_host: 'MurrayStore', remote_path: '/volume1/Anton' }
+
+docker_compose_service_name: murrayfoundry
+
+home_assistant_user: 'jordan'
+home_assistant_group: 'jordan'
+home_assistant_trusted_proxy: '172.20.0.0/24'
+
+rclone_user: 'jordan'
+rclone_group: 'jordan'
+rclone_conf_dir: '/opt/appdata/rclone-supercronic'
+rclone_scripts:
+  - { path: 'backup-home-assistant.sh', cron: '45 8 * * *' }
