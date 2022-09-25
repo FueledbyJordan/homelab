@@ -23,7 +23,7 @@ This project utilizes [Infrastructure as Code](https://en.wikipedia.org/wiki/Inf
     <tr>
         <td><img width="32" src="https://avatars.githubusercontent.com/u/314135?s=200&v=4"></td>
         <td><a href="https://www.cloudflare.com">Cloudflare</a></td>
-        <td>Proxy, Firewall, IP masking, and Tunnel</td>
+        <td>Proxy, firewall, IP masking, and tunnel</td>
     </tr>
     <tr>
         <td><img width="32" src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"></td>
@@ -34,6 +34,16 @@ This project utilizes [Infrastructure as Code](https://en.wikipedia.org/wiki/Inf
         <td><img width="32" src="https://raw.githubusercontent.com/docker/compose/v2/logo.png"></td>
         <td><a href="https://docs.docker.com/compose/">Docker Compose</a></td>
         <td>Container orchestration</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://healthchecks.io/static/img/logo-rounded-ua.svg"></td>
+        <td><a href="https://healthchecks.io/">Healthchecks.io</a></td>
+        <td>Periodic alerting</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand/2016/SendGrid-Logomark.png"></td>
+        <td><a href="https://sendgrid.com/">SendGrid</a></td>
+        <td>Email management</td>
     </tr>
 </table>
 
