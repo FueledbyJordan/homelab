@@ -5,4 +5,17 @@
     - role: ansible-role-docker
       become: yes
 
+    - role: ansible-role-autofs
+      become: yes
+      vars:
+        autofs_maps:
+          - mountpoint: /MurrayShare
+            options:
+              - "--timeout 60"
+            directories:
+              - path: mount
+                server: "MurrayShare:/volume1/Anton"
+                options:
+                  - "fstype=bind"
+
     - role: murrayfoundry_services
