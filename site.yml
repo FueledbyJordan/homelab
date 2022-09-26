@@ -2,4 +2,7 @@
 
 - hosts: server
   roles:
-    - murrayfoundry_services
+    - role: ansible-role-docker
+      become: yes
+
+    - role: murrayfoundry_services

@@ -1,0 +1,4 @@
+---
+
+- src: https://github.com/geerlingguy/ansible-role-docker
+  version: 5.2.1
