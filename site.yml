@@ -2,6 +2,13 @@
 
 - hosts: server
   roles:
+
+    - role: ansible-ssh-hardening
+      become: yes
+      vars:
+        network_ipv6_enable: false
+        ssh_server_ports: ['2121']
+
     - role: ansible-role-docker
       become: yes
 
@@ -29,3 +36,4 @@
       become: yes
 
     - role: murrayfoundry_services
+      become: yes

@@ -1,5 +1,8 @@
 ---
 
+- src: https://github.com/dev-sec/ansible-ssh-hardening
+  version: 9.7.0
+
 - src: https://github.com/geerlingguy/ansible-role-docker
   version: 5.2.1
 
