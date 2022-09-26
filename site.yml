@@ -18,4 +18,11 @@
                 options:
                   - "fstype=bind"
 
+    - role: ansible-role-hosts
+      become: yes
+      vars:
+        hosts_entries:
+          - name: MurrayShare
+            ip: 10.0.20.2
+
     - role: murrayfoundry_services
