@@ -8,3 +8,6 @@
 
 - src: https://github.com/bertvv/ansible-role-hosts
   version: v1.2.0
+
+- src: https://github.com/FueledbyJordan/ansible-role-utilities
+  version: master
