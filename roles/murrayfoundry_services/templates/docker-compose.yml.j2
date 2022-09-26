@@ -17,7 +17,7 @@ services:
       - VALIDATION=dns
       - CERTPROVIDER=zerossl
       - DNSPLUGIN=cloudflare
-      - EMAIL={{ DOMAIN_BOT_ADDRESS }}
+      - EMAIL={{ domain_bot_address }}
     volumes:
       - /opt/appdata/swag:/config
     ports:
@@ -30,15 +30,15 @@ services:
     restart: always
     environment:
       - DOMAIN=https://vaultwarden.murrayfoundry.com
-      - ADMIN_TOKEN={{ VAULTWARDEN_ADMIN_TOKEN }}
+      - ADMIN_TOKEN={{ vaultwarden_admin_token }}
       - SIGNUPS_ALLOWED=false
       - WEBSOCKET_ENABLED=true
       - SMTP_HOST=smtp.sendgrid.net
-      - SMTP_FROM={{ DOMAIN_BOT_ADDRESS }}
+      - SMTP_FROM={{ domain_bot_address }}
       - SMTP_PORT=587
       - SMTP_SECURITY=starttls
       - SMTP_USERNAME=apikey
-      - SMTP_PASSWORD={{ DOMAIN_BOT_SMTP_PASSWORD }}
+      - SMTP_PASSWORD={{ domain_bot_smtp_password }}
       - SMTP_AUTH_MECHANISM=Login
     volumes:
       - /opt/appdata/vaultwarden:/data
@@ -52,9 +52,9 @@ services:
       - RCLONE_REMOTE_DIR=murrayfoundry-backups
       - CRON=5 1 * * *
       - ZIP_ENABLE=TRUE
-      - ZIP_PASSWORD={{ VW_BACKUP_ZIP_PASSWORD }}
+      - ZIP_PASSWORD={{ vw_backup_zip_password }}
       - ZIP_TYPE=7z
-      - PING_URL={{ VW_BACKUP_PING_URL }}
+      - PING_URL={{ vw_backup_ping_url }}
       - TIMEZONE=UTC
     volumes:
       - /opt/appdata/vaultwarden:/bitwarden/data
@@ -69,15 +69,15 @@ services:
       - TIMEZONE=America/New_York
       - CEILING_THRESHOLD=0.2
       - FLOOR_THRESHOLD=3.0
-      - LAKE_NAME={{ WATERBOT_LAKE_NAME }}
-      - FULL_POOL_URL={{ WATERBOT_FULL_POOL_URL }}
-      - CURRENT_POOL_URL={{ WATERBOT_CURRENT_POOL_URL }}
-      - PING_URL={{ WATERBOT_PING_URL }}
-      - MAIL_SMTP_FROM={{ DOMAIN_BOT_ADDRESS }}
-      - MAIL_TO={{ WATERBOT_MAIL_TO }}
+      - LAKE_NAME={{ waterbot_lake_name }}
+      - FULL_POOL_URL={{ waterbot_full_pool_url }}
+      - CURRENT_POOL_URL={{ waterbot_current_pool_url }}
+      - PING_URL={{ waterbot_ping_url }}
+      - MAIL_SMTP_FROM={{ domain_bot_address }}
+      - MAIL_TO={{ waterbot_mail_to }}
       - MAIL_SMTP_HOST=smtp.sendgrid.net
       - MAIL_SMTP_PORT=587
       - MAIL_SMTP_SECURITY=starttls
       - MAIL_SMTP_AUTH_MECHANISM=login
       - MAIL_SMTP_USERNAME=apikey
-      - MAIL_SMTP_PASSWORD={{ DOMAIN_BOT_SMTP_PASSWORD }}
+      - MAIL_SMTP_PASSWORD={{ domain_bot_smtp_password }}

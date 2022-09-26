@@ -1,19 +1,25 @@
 ---
 
 - hosts: server
+  vars_files:
+    - vars/secrets.yml
+
   roles:
 
+    - role: ansible-role-create-users
+      become: true
+
     - role: ansible-ssh-hardening
-      become: yes
+      become: true
       vars:
         network_ipv6_enable: false
         ssh_server_ports: ['2121']
 
     - role: ansible-role-docker
-      become: yes
+      become: true
 
     - role: ansible-role-autofs
-      become: yes
+      become: true
       vars:
         autofs_maps:
           - mountpoint: /MurrayShare
@@ -26,14 +32,14 @@
                   - "fstype=bind"
 
     - role: ansible-role-hosts
-      become: yes
+      become: true
       vars:
         hosts_entries:
           - name: MurrayShare
             ip: 10.0.20.2
 
     - role: ansible-role-utilities
-      become: yes
+      become: true
 
     - role: murrayfoundry_services
-      become: yes
+      become: true
