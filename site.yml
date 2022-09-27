@@ -1,32 +1,17 @@
 ---
 
 - hosts: server
+  become: true
   vars_files:
     - vars/main.yml
     - vars/secrets.yml
 
   roles:
-
     - role: ansible-role-create-users
-      become: true
-
     - role: ansible-ssh-hardening
-      become: true
-
     - role: ansible-role-firewall
-      become: true
-
     - role: ansible-role-docker
-      become: true
-
     - role: ansible-role-autofs
-      become: true
-
     - role: ansible-role-hosts
-      become: true
-
     - role: ansible-role-utilities
-      become: true
-
     - role: ansible-role-docker-compose
-      become: true
