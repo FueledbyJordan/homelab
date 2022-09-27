@@ -1,0 +1,27 @@
+---
+
+network_ipv6_enable: false
+ssh_server_ports: ['2121']
+
+firewall_flush_rules_and_chains: false
+firewall_disable_firewalld: true
+firewall_allowed_tcp_ports:
+  - "80"
+  - "443"
+  - "2121"
+
+autofs_maps:
+  - mountpoint: /MurrayShare
+    options:
+      - "--timeout 60"
+    directories:
+      - path: mount
+        server: "MurrayShare:/volume1/Anton"
+        options:
+          - "fstype=bind"
+
+hosts_entries:
+  - name: MurrayShare
+    ip: 10.0.20.2
+
+docker_compose_service_name: murrayfoundry

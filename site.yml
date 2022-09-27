@@ -2,6 +2,7 @@
 
 - hosts: server
   vars_files:
+    - vars/main.yml
     - vars/secrets.yml
 
   roles:
@@ -11,45 +12,21 @@
 
     - role: ansible-ssh-hardening
       become: true
-      vars:
-        network_ipv6_enable: false
-        ssh_server_ports: ['2121']
 
     - role: ansible-role-firewall
       become: true
-      vars:
-        firewall_flush_rules_and_chains: false
-        firewall_disable_firewalld: true
-        firewall_allowed_tcp_ports:
-          - "80"
-          - "443"
-          - "2121"
 
     - role: ansible-role-docker
       become: true
 
     - role: ansible-role-autofs
       become: true
-      vars:
-        autofs_maps:
-          - mountpoint: /MurrayShare
-            options:
-              - "--timeout 60"
-            directories:
-              - path: mount
-                server: "MurrayShare:/volume1/Anton"
-                options:
-                  - "fstype=bind"
 
     - role: ansible-role-hosts
       become: true
-      vars:
-        hosts_entries:
-          - name: MurrayShare
-            ip: 10.0.20.2
 
     - role: ansible-role-utilities
       become: true
 
-    - role: murrayfoundry_services
+    - role: ansible-role-docker-compose
       become: true
