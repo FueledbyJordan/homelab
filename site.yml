@@ -15,6 +15,16 @@
         network_ipv6_enable: false
         ssh_server_ports: ['2121']
 
+    - role: ansible-role-firewall
+      become: true
+      vars:
+        firewall_flush_rules_and_chains: false
+        firewall_disable_firewalld: true
+        firewall_allowed_tcp_ports:
+          - "80"
+          - "443"
+          - "2121"
+
     - role: ansible-role-docker
       become: true
 

@@ -17,3 +17,6 @@
 
 - src: https://github.com/ryandaniels/ansible-role-create-users
   version: 1.0.7
+
+- src: https://github.com/geerlingguy/ansible-role-firewall
+  version: 2.5.0
