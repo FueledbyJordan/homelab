@@ -92,3 +92,11 @@ services:
     restart: always
     volumes:
       - /opt/appdata/homeassistant:/config
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: '172.20.0.0/24'
