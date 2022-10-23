@@ -93,6 +93,18 @@ services:
     volumes:
       - /opt/appdata/homeassistant:/config
 
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    container_name: duplicati
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    restart: always
+    volumes:
+      - /opt/appdata/duplicati:/config
+      - /opt/appdata/backups:/source
+
 networks:
   default:
     driver: bridge
