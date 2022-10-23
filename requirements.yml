@@ -26,3 +26,6 @@
 
 - src: https://github.com/FueledbyJordan/ansible-role-home-assistant
   version: master
+
+- src: https://github.com/FueledbyJordan/ansible-role-duplicati
+  version: master

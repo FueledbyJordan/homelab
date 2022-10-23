@@ -16,3 +16,4 @@
     - role: ansible-role-utilities
     - role: ansible-role-docker-compose
     - role: ansible-role-home-assistant
+    - role: ansible-role-duplicati
