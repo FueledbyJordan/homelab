@@ -13,7 +13,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
       - URL=murrayfoundry.com
-      - SUBDOMAINS=vaultwarden
+      - SUBDOMAINS=vaultwarden,homeassistant
       - VALIDATION=dns
       - CERTPROVIDER=zerossl
       - DNSPLUGIN=cloudflare
@@ -81,3 +81,14 @@ services:
       - MAIL_SMTP_AUTH_MECHANISM=login
       - MAIL_SMTP_USERNAME=apikey
       - MAIL_SMTP_PASSWORD={{ domain_bot_smtp_password }}
+
+  homeassistant:
+    image: lscr.io/linuxserver/homeassistant:latest
+    container_name: homeassistant
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    restart: always
+    volumes:
+      - /opt/appdata/homeassistant:/config
