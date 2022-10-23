@@ -25,3 +25,7 @@ hosts_entries:
     ip: 10.0.20.2
 
 docker_compose_service_name: murrayfoundry
+
+home_assistant_user: 'jordan'
+home_assistant_group: 'jordan'
+home_assistant_trusted_proxy: '172.20.0.0/24'

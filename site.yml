@@ -15,3 +15,4 @@
     - role: ansible-role-hosts
     - role: ansible-role-utilities
     - role: ansible-role-docker-compose
+    - role: ansible-role-home-assistant

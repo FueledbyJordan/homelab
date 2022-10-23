@@ -23,3 +23,6 @@
 
 - src: https://github.com/FueledbyJordan/ansible-role-docker-compose
   version: master
+
+- src: https://github.com/FueledbyJordan/ansible-role-home-assistant
+  version: master
