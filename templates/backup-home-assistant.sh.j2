@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -euo pipefail
+rclone copy /source/homeassistant/*.tar {{ rclone_backends[0].backend_name }}:{{ rclone_home_assistant_bucket }}
+curl -fsS -m 10 --retry 5 -o /dev/null {{ rclone_success_home_assistant_endpoint }}

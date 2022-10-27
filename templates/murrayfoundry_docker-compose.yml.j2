@@ -92,17 +92,21 @@ services:
     restart: always
     volumes:
       - /opt/appdata/homeassistant:/config
+      - /opt/appdata/backups/homeassistant:/config/backups
 
-  duplicati:
-    image: lscr.io/linuxserver/duplicati:latest
-    container_name: duplicati
+  rclone-supercronic:
+    image: ghcr.io/fueledbyjordan/rclone-supercronic:latest
+    container_name: rclone-supercronic
+    restart: always
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=America/New_York
-    restart: always
+      - RCLONE_CONFIG=/config/rclone.conf
     volumes:
-      - /opt/appdata/duplicati:/config
+      - /opt/appdata/rclone-supercronic/config/crontab:/etc/supercronic/crontab:ro
+      - /opt/appdata/rclone-supercronic/config:/config:ro
+      - /opt/appdata/rclone-supercronic/scripts:/scripts:ro
       - /opt/appdata/backups:/source
 
 networks:

@@ -27,5 +27,5 @@
 - src: https://github.com/FueledbyJordan/ansible-role-home-assistant
   version: master
 
-- src: https://github.com/FueledbyJordan/ansible-role-duplicati
+- src: https://github.com/FueledbyJordan/ansible-role-rclone-supercronic
   version: master

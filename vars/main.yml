@@ -30,5 +30,8 @@ home_assistant_user: 'jordan'
 home_assistant_group: 'jordan'
 home_assistant_trusted_proxy: '172.20.0.0/24'
 
-duplicati_user: 'jordan'
-duplicati_group: 'jordan'
+rclone_user: 'jordan'
+rclone_group: 'jordan'
+rclone_conf_dir: '/opt/appdata/rclone-supercronic'
+rclone_scripts:
+  - { path: 'backup-home-assistant.sh', cron: '45 8 * * *' }
