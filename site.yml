@@ -16,4 +16,4 @@
     - role: ansible-role-utilities
     - role: ansible-role-docker-compose
     - role: ansible-role-home-assistant
-    - role: ansible-role-rclone-supercronic
+    - role: ansible_role_rclone_supercronic
