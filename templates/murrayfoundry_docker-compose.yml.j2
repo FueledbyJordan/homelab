@@ -65,7 +65,7 @@ services:
     container_name: waterbot
     restart: always
     environment:
-      - CRON=0 9 * * *
+      - CRON=0 9 * * 0
       - TIMEZONE=America/New_York
       - CEILING_THRESHOLD=0.2
       - FLOOR_THRESHOLD=3.0
