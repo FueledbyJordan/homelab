@@ -35,6 +35,16 @@ I have found that my needs have grown to require proper configuration management
         <td><a href="https://github.com/FueledbyJordan/lake-depth-monitor">Lake Depth Monitor</a></td>
         <td>A tool I wrote to monitor water levels at a local lake.</td>
     </tr>
+    <tr>
+        <td><img width="32" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Home_Assistant_Logo.svg"></td>
+        <td><a href="https://www.home-assistant.io/">Home Assistant</a></td>
+        <td>Open source home automation that puts local control and privacy first.</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"></td>
+        <td><a href="https://github.com/FueledbyJordan/rclone-supercronic">Rclone Supercronic</a></td>
+        <td>A file manipulation scheduler.</td>
+    </tr>
 </table>
 
 ## Tech stack
