@@ -1,4 +1,4 @@
-name: Ansible Lint # feel free to pick your own name
+name: Ansible Lint
 on: [push, pull_request]
 
 jobs:
@@ -6,12 +6,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Important: This sets up your GITHUB_WORKSPACE environment variable
-      - uses: actions/checkout@v2
+      - uses: Check out repo
+        uses: actions/checkout@v3
 
       - name: Run ansible-lint
-        # replace `main` with any valid ref, or tags like `v6`
         uses: ansible-community/ansible-lint-action@main
-          # optional:
-          # with:
-          #   path: "playbooks/"  # <-- only one value is allowed
