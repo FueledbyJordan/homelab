@@ -13,7 +13,7 @@
     - role: ansible-role-docker
     - role: ansible-role-autofs
     - role: ansible-role-hosts
-    - role: ansible-role-utilities
+    - role: ansible_role_utilities
     - role: ansible-role-docker-compose
     - role: ansible-role-home-assistant
     - role: ansible_role_rclone_supercronic
