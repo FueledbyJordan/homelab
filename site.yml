@@ -1,6 +1,7 @@
 ---
 
-- hosts: server
+- name: Sitewide role
+  hosts: server
   become: true
   vars_files:
     - vars/main.yml
@@ -11,8 +12,8 @@
     - role: ansible-ssh-hardening
     - role: ansible-role-firewall
     - role: ansible-role-docker
-    - role: ansible-role-autofs
     - role: ansible-role-hosts
+    - role: ansible_role_autofs
     - role: ansible_role_utilities
     - role: ansible-role-docker-compose
     - role: ansible-role-home-assistant

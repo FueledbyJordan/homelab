@@ -6,8 +6,8 @@
 - src: https://github.com/geerlingguy/ansible-role-docker
   version: 5.2.1
 
-- src: https://github.com/robertdebock/ansible-role-autofs
-  version: 2.1.3
+- src: https://github.com/fueledbyjordan/ansible_role_autofs
+  version: master
 
 - src: https://github.com/bertvv/ansible-role-hosts
   version: v1.2.0
