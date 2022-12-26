@@ -41,6 +41,11 @@ I have found that my needs have grown to require proper configuration management
         <td>Open source home automation that puts local control and privacy first.</td>
     </tr>
     <tr>
+        <td><img width="32" src="https://developer.asustor.com/uploadIcons/0020_999_1568614457_Jellyfin_256.png"></td>
+        <td><a href="https://jellyfin.org/">Jellyfin</a></td>
+        <td>Jellyfin is a free and open-source media server and suite of multimedia applications designed to organize, manage, and share digital media files to networked devices.</td>
+    </tr>
+    <tr>
         <td><img width="32" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"></td>
         <td><a href="https://github.com/FueledbyJordan/rclone-supercronic">Rclone Supercronic</a></td>
         <td>A file manipulation scheduler.</td>
