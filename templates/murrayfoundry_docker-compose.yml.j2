@@ -13,7 +13,7 @@ services:
       - PGID=1000
       - TZ=America/New_York
       - URL=murrayfoundry.com
-      - SUBDOMAINS=vaultwarden,homeassistant
+      - SUBDOMAINS=vaultwarden,homeassistant,jellyfin
       - VALIDATION=dns
       - CERTPROVIDER=zerossl
       - DNSPLUGIN=cloudflare
@@ -108,6 +108,19 @@ services:
       - /opt/appdata/rclone-supercronic/config:/config:ro
       - /opt/appdata/rclone-supercronic/scripts:/scripts:ro
       - /opt/appdata/backups:/source
+
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - /opt/appdata/jellyfin:/config
+      - /MurrayStore/Movies:/data/movies
+      - /MurrayStore/TV:/data/tv
 
 networks:
   default:
