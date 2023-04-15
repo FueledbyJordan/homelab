@@ -19,7 +19,7 @@
   version: 1.0.7
 
 - src: https://github.com/geerlingguy/ansible-role-firewall
-  version: 2.5.0
+  version: master
 
 - src: https://github.com/FueledbyJordan/ansible-role-docker-compose
   version: master
