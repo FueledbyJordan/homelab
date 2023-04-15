@@ -113,8 +113,6 @@ services:
     image: lscr.io/linuxserver/jellyfin:latest
     container_name: jellyfin
     restart: always
-    security_opt:
-      - seccomp=unconfined
     environment:
       - PUID=1000
       - PGID=1000
