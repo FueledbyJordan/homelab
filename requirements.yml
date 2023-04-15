@@ -4,7 +4,7 @@
   version: master
 
 - src: https://github.com/geerlingguy/ansible-role-docker
-  version: 5.2.1
+  version: master
 
 - src: https://github.com/fueledbyjordan/ansible_role_autofs
   version: master
