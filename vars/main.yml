@@ -1,7 +1,11 @@
 ---
 
 network_ipv6_enable: false
-ssh_server_ports: ['2121']
+security_ssh_port: 2121
+
+update_utility: dnf-automatic
+update_service: dnf-automatic-install.timer
+update_conf_path: /etc/dnf/automatic.conf
 
 firewall_flush_rules_and_chains: false
 firewall_disable_firewalld: true

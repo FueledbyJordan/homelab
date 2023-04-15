@@ -9,7 +9,7 @@
 
   roles:
     - role: ansible-role-create-users
-    - role: ansible-ssh-hardening
+    - role: ansible-role-security
     - role: ansible-role-firewall
     - role: ansible-role-docker
     - role: ansible-role-hosts
