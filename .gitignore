@@ -1,1 +1,2 @@
 .ansible-vault
+vars/secrets.yml
