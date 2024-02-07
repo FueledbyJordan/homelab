@@ -73,14 +73,9 @@ services:
       - FULL_POOL_URL={{ waterbot_full_pool_url }}
       - CURRENT_POOL_URL={{ waterbot_current_pool_url }}
       - PING_URL={{ waterbot_ping_url }}
-      - MAIL_SMTP_FROM={{ domain_bot_address }}
+      - MAIL_FROM={{ domain_bot_address }}
       - MAIL_TO={{ waterbot_mail_to }}
-      - MAIL_SMTP_HOST=smtp.sendgrid.net
-      - MAIL_SMTP_PORT=587
-      - MAIL_SMTP_SECURITY=starttls
-      - MAIL_SMTP_AUTH_MECHANISM=login
-      - MAIL_SMTP_USERNAME=apikey
-      - MAIL_SMTP_PASSWORD={{ domain_bot_smtp_password }}
+      - SENDGRID_API_KEY={{ waterbot_sendgrid_api_key }}
 
   homeassistant:
     image: lscr.io/linuxserver/homeassistant:latest
